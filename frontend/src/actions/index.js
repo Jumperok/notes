@@ -2,7 +2,7 @@ import constants from '../constants';
 //import { FETCH_NOTES } from '../constants';
 import api from '../api';
 
-const { FETCH_NOTES } = constants; // ???? why not like above
+const { FETCH_NOTES, ADD_NOTE } = constants; // ???? why not like above
 
 const noteActions = { //we can return object instead of function because of promise middleware
   // loadNotes() {
@@ -23,7 +23,14 @@ const noteActions = { //we can return object instead of function because of prom
     // 
     // })
     return {type: FETCH_NOTES, payload: api.getNotesFromAPI().then(payload => {return payload.data.Notes})};
+  },
+  
+  addNote(Note) {
+    console.log("from actions", Note);
+    return {type: ADD_NOTE, payload: api.addNotesAPI(Note).then(payload => {return [1,2,3]})};
   }
+  
+  
 };
 
 export default noteActions;

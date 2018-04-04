@@ -31,7 +31,13 @@ export default {
   getNotesFromAPI() {
     return axios.get(`${apiPrefix}/api`);
     // return fetch(`${apiPrefix}/api`).then(response => {response.json().then(data => {return data.Notes}) });
+  },
+
+  addNotesAPI(Note) {
+    console.log("from api", Note);
+    return axios.post(`${apiPrefix}/api`, Note);
   }
+  //{sdas: "dsad", dad:"mom"}
   // getNotesFromAPI() {
   //   return fetch(`${apiPrefix}/apip`)
   //          .then(response => { return response.json() })

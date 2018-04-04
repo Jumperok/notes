@@ -6,11 +6,11 @@ const router = express.Router();
 
 router.route('/')
   .get(noteController.getNotes)
-  .post(noteController.addNote)
-  .put(noteController.updateNote);
+  .post(noteController.addNote);
 
-// router.route('/:id')
-//   .get(noteController.getTodo)
-//   .delete(noteController.deleteTodo);
+router.route('/:id')
+  .put(noteController.updateNote)
+  .delete(noteController.deleteNote);
+  //.get(noteController.getTodo)
 
 export default router;
