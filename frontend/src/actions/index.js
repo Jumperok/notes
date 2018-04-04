@@ -4,18 +4,25 @@ import api from '../api';
 
 const { FETCH_NOTES } = constants; // ???? why not like above
 
-const noteActions = {
+const noteActions = { //we can return object instead of function because of promise middleware
+  // loadNotes() {
+  //   return dispatch => {
+  //     api.getNotesFromAPI()
+  //     .then(data => {
+  //       console.log(data);
+  //       dispatch({ 
+  //         type: FETCH_NOTES, 
+  //         payload: data.Notes
+  //       })
+  //     });
+  //   }  
+  // }
   loadNotes() {
-    return dispatch => {
-      api.getNotesFromAPI()
-      .then(data => {
-        console.log(data);
-        dispatch({ 
-          type: FETCH_NOTES, 
-          payload: data.Notes
-        })
-      });
-    }  
+    // api.getNotesFromAPI()
+    // .then(data => {
+    // 
+    // })
+    return {type: FETCH_NOTES, payload: api.getNotesFromAPI().then(payload => {return payload.data.Notes})};
   }
 };
 

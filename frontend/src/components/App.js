@@ -11,11 +11,11 @@ import { connect } from 'react-redux';
 // }
 class App extends React.Component {
   componentDidMount() {
-    this.props.getFokedData();
+    this.props.getTasks();
   }
 
   render() {
-    console.log("store", this.props.store);
+    console.log("store", this.props.mappedState);
     return (
       <div>data</div>
     );
@@ -32,10 +32,10 @@ class App extends React.Component {
 
 export default connect(
   state => ({
-    store: state
+    mappedState: state
   }),
   dispatch => ({
-    getFokedData: () => {
+    getTasks: () => {
       //dispatch({ type: 'FETCH_NOTES', payload: {nams:'dasd'}});
       dispatch(noteActions.loadNotes());
     }
