@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for notes",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app_hooked.js"
+  },
+  "author": "Nikita Suyazov",
+  "license": "MIT",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-busboy": "^6.0.1",
+    "mongoose": "^5.0.12",
+    "morgan": "^1.9.0",
+    "source-map-support": "^0.5.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-node": "^6.1.1",
+    "nodemon": "^1.17.3"
+  }
+}
