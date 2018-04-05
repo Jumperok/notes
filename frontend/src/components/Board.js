@@ -1,18 +1,18 @@
 import React from 'react';
 //import { connect } from 'react-redux';
-import List from './List';
+import ListContainer from '../containers/ListContainer';
 
 const Board = () => (
     <div className="project-board">
-        <List status="TODO">
+        <ListContainer status="TODO">
             Todo tasks
-        </List>
-        <List status="DOING">
+        </ListContainer>
+        <ListContainer status="DOING">
             Doing tasks
-        </List>
-        <List status="DONE">
+        </ListContainer>
+        <ListContainer status="DONE">
             Done tasks
-        </List>
+        </ListContainer>
     </div>
 );
 

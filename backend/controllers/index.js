@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
-//import models
 import Note from '../models';
 
 export const getNotes = (req,res) => {
-  console.log("GETNOTES");
   Note.find().exec((err, Notes) => {
     if(err){
       return res.json({'success':false, 'message':'Some Error'});
@@ -17,14 +15,14 @@ export const addNote = (req,res) => {
   // console.log("BODY!", req.body);
   //console.log(req.headers);
 
-  // const newNote = new Note(req.body);
-  //
-  // newNote.save((err, Note) => {
-  //   if(err){
-  //     return res.json({'success':false,'message':'Some Error'});
-  //   }
-  //   return res.json({'success':true,'message':'Note added successfully', Note});
-  // })
+  const newNote = new Note(req.body);
+
+  newNote.save((err, Note) => {
+    if(err){
+      return res.json({'success':false,'message':'Some Error'});
+    }
+    return res.json({'success':true,'message':'Note added successfully', Note});
+  })
 }
 
 export const updateNote = (req,res) => {

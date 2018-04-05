@@ -36,6 +36,14 @@ export default {
   addNotesAPI(Note) {
     console.log("from api", Note);
     return axios.post(`${apiPrefix}/api`, Note);
+  },
+
+  changeTaskStatusAPI(id, newNote) {
+    return axios.put(`${apiPrefix}/api/${id}`, newNote);
+  },
+
+  deleteTaskAPI(id) {
+    return axios.delete(`${apiPrefix}/api/${id}`);
   }
   //{sdas: "dsad", dad:"mom"}
   // getNotesFromAPI() {

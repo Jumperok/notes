@@ -10,7 +10,12 @@ const INITIAL_STATE = {
 const notes = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_NOTES_FULFILLED:
-      return state;
+      return {
+        // ...state,
+        tasks: action.payload,
+        isFetching: false,
+        fetchingError: null
+      }
       // {
       //   tasks: action.payload,
       //   isFetching: false,

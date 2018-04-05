@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 //import reducer from './reducers';
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 //import thunk from 'redux-thunk';
 //import { createLogger } from 'redux-logger';
 //import promise from 'redux-promise-middleware';
@@ -15,7 +15,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById('app')
 );
