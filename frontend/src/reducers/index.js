@@ -1,5 +1,5 @@
 import constants from '../constants';
-const { FETCH_NOTES_FULFILLED, ADD_NOTE, FETCH_NOTES } = constants;
+const { FETCH_NOTES_PENDING, FETCH_NOTES_FULFILLED, FETCH_NOTES_REJECTED } = constants;
 
 const INITIAL_STATE = {
   tasks: [],
@@ -11,20 +11,23 @@ const notes = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_NOTES_FULFILLED:
       return {
-        // ...state,
+        ...state,
         tasks: action.payload.data.Notes,
         isFetching: false,
         fetchingError: null
       }
-      // {
-      //   tasks: action.payload,
-      //   isFetching: false,
-      //   fetchingError: null
-      // }
-    // case ADD_NOTE:
-    //   return state;
-
-
+    case FETCH_NOTES_PENDING:
+      return {
+        ...state,
+        isFetching: true,
+        fetchingError: false
+      }
+    case FETCH_NOTES_REJECTED:
+      return {
+        ...state,
+        isFetching: false,
+        fetchingError: true
+      }
   }
   return state;
 }
