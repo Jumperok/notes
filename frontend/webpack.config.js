@@ -1,7 +1,6 @@
 const path = require('path');
 
-module.exports = {
-  devtool: 'source-map',
+let conf = {
   entry: './src/index.js',
   output: {
       path: path.resolve(__dirname, 'public'),
@@ -24,3 +23,11 @@ module.exports = {
       contentBase: path.resolve(__dirname, 'public')
   }
 };
+
+module.exports = (env, options) => {
+  let production = options.mode === 'production';
+
+  conf.devtool = production ? false : 'eval-sourcemap';
+
+  return conf;
+}

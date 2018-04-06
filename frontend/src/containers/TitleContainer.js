@@ -7,6 +7,13 @@ export default connect(
     tasksAmount: state.tasks.length
   })
 )(Title);
+
+
+
+
+
+
+
 // const mapStateToProps = state => {
 //   tasksAmount: state.length
 // };

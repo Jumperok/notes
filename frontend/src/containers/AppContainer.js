@@ -21,12 +21,14 @@ class AppContainer extends React.Component {
   }
 }
 
+
 export default connect(
   state => ({
     mappedState: state
   }),
   dispatch => ({
     getTasks: () => {
+      //noteActions.loadNotes();
       //dispatch({ type: 'FETCH_NOTES', payload: {nams:'dasd'}});
       dispatch(noteActions.loadNotes());
     }

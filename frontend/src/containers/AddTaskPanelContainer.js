@@ -1,6 +1,6 @@
 import React from 'react';
 //import AddTaskPanel from '../components/AddTaskPanel';
-import Actions from '../actions';
+import noteActions from '../actions';
 import { connect } from 'react-redux';
 //
 // class AddTaskPanelContainer extends React.Component {
@@ -121,8 +121,9 @@ export default connect(
   dispatch => ({
     addTask: (Note) => {
       //dispatch({ type: 'FETCH_NOTES', payload: {nams:'dasd'}});
-      //dispatch(Actions.loadNotes());
-      dispatch(Actions.addNote(Note));
+      dispatch(noteActions.addNote(Note));
+      //dispatch({ type: 'FETCH_NOTES', payload: noteActions.addNote(Note) });
+      //dispatch(Actions.addNote(Note));
     }
   })
 )(AddTaskPanelContainer);
