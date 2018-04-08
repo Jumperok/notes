@@ -12,11 +12,16 @@ const Card = ({id, text, executor, deleteTask, status, changeTaskStatus}) => {
     status: nextStatus
   };
 
+  const handleDeleteClick = e => {
+    e.stopPropagation();
+    deleteTask(id);
+  }
+
   return (
     <div className="project-card" onClick={() => {changeTaskStatus(id, newNote)}}>
       <p className="card-text">{text}</p>
       <span className="card-executor">{executor}</span>
-      <span className="card-remove" onClick={() => deleteTask(id)}>-</span>
+      <span className="card-remove" onClick={handleDeleteClick}>-</span>
     </div>
   );
 };

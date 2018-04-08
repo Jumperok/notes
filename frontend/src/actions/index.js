@@ -2,40 +2,33 @@ import constants from '../constants';
 //import { FETCH_NOTES } from '../constants';
 import api from '../api';
 
-const { FETCH_NOTES, FETCH_NOTES_PENDING, FETCH_NOTES_FULFILLED, FETCH_NOTES_REJECTED } = constants; // ???? why not like above
+const { FETCH_NOTES, ADD_NOTE, CHANGE_STATUS, DELETE_NOTE, SET_EXECUTOR, SET_DESCRIPTION } = constants; // ???? why not like above
 
 const noteActions = { //we can return object instead of function because of promise middleware
   loadNotes() {
     return { type: FETCH_NOTES, payload: api.getNotesFromAPI() };
   },
-  
+
   addNote(Note) {
-    return dispatch => {
-      api.addNotesAPI(Note)
-      .then(() => 
-        dispatch(this.loadNotes())
-      );
-    }
+    return { type: ADD_NOTE, payload: api.addNotesAPI(Note) };
   },
-  
+
   changeTaskStatus(id, newNote) {
-    return dispatch => {
-      api.changeTaskStatusAPI(id, newNote)
-      .then(() => 
-        dispatch(this.loadNotes())
-      );
-    }
+    return { type: CHANGE_STATUS, payload: api.changeTaskStatusAPI(id, newNote) };
   },
-  
+
   deleteTask(id) {
-    return dispatch => {
-      api.deleteTaskAPI(id)
-      .then(() => 
-        dispatch(this.loadNotes())
-      );
-    }
+    return { type: DELETE_NOTE, payload: api.deleteTaskAPI(id) };
+  },
+
+  setExecutor(executor) {
+    return { type: SET_EXECUTOR, payload: executor };
+  },
+
+  setDescription(description) {
+    return { type: SET_DESCRIPTION, payload: description };
   }
-  
+
 };
 
 export default noteActions;
