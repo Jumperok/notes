@@ -1,34 +1,7 @@
 import React from 'react';
 import noteActions from '../actions';
+import AddTaskPanel from '../components/AddTaskPanel';
 import { connect } from 'react-redux';
-
-const AddTaskPanelContainer = ({ addTask, newTaskInputs, setExecutor, setDescription }) => {
-  const handleExecutorChange = e => {
-    let executor = e.target.value;
-    setExecutor(executor);
-  };
-
-  const handleDescriptionChange = e => {
-    let description = e.target.value;
-    setDescription(description);
-  };
-
-  const submitTask = e => {
-    e.preventDefault();
-    addTask(newTaskInputs);
-  };
-
-  return (
-    <div className="form-container">
-      <form onSubmit={submitTask}>
-        <input className="task-form-text" placeholder="New task..." value={newTaskInputs.description} onChange={handleDescriptionChange}/>
-        <input className="task-form-executor" placeholder="Who..." value={newTaskInputs.executor} onChange={handleExecutorChange}/>
-        <input className="task-form-submit" type="submit" value="Add"/>
-      </form>
-    </div>
-  );
-
-};
 
 const mapDispatchToProps = {
   addTask: noteActions.addNote,
@@ -41,7 +14,7 @@ export default connect(
     newTaskInputs: state.inputs
   }),
   mapDispatchToProps
-)(AddTaskPanelContainer);
+)(AddTaskPanel);
 
 // dispatch => ({
 //   addTask: (newNote) => {

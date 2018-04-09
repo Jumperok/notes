@@ -10,8 +10,6 @@ const noteActions = { //we can return object instead of function because of prom
   },
 
   addNote(newTaskInputs) {
-    if (!newTaskInputs.description.trim())
-      return;
 
     let newNote = {
       executor: newTaskInputs.executor.trim() ? newTaskInputs.executor : 'All',
@@ -22,7 +20,19 @@ const noteActions = { //we can return object instead of function because of prom
     return { type: ADD_NOTE, payload: api.addNotesAPI(newNote) };
   },
 
-  changeTaskStatus(id, newNote) {
+  changeTaskStatus(id, executor, text, status) {
+
+    const statuses = ['TODO','DOING','DONE'];
+
+    let statusNum = statuses.indexOf(status);
+    const nextStatus = statusNum === 2 ? statuses[0] : statuses[statusNum + 1];
+
+    let newNote = {
+      executor,
+      text,
+      status: nextStatus
+    };
+
     return { type: CHANGE_STATUS, payload: api.changeTaskStatusAPI(id, newNote) };
   },
 
