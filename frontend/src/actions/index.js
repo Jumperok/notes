@@ -9,8 +9,17 @@ const noteActions = { //we can return object instead of function because of prom
     return { type: FETCH_NOTES, payload: api.getNotesFromAPI() };
   },
 
-  addNote(Note) {
-    return { type: ADD_NOTE, payload: api.addNotesAPI(Note) };
+  addNote(newTaskInputs) {
+    if (!newTaskInputs.description.trim())
+      return;
+
+    let newNote = {
+      executor: newTaskInputs.executor.trim() ? newTaskInputs.executor : 'All',
+      text: newTaskInputs.description,
+      status: 'TODO'
+    };
+
+    return { type: ADD_NOTE, payload: api.addNotesAPI(newNote) };
   },
 
   changeTaskStatus(id, newNote) {

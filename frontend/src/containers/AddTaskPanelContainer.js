@@ -15,17 +15,7 @@ const AddTaskPanelContainer = ({ addTask, newTaskInputs, setExecutor, setDescrip
 
   const submitTask = e => {
     e.preventDefault();
-
-    if (!newTaskInputs.description.trim())
-      return;
-
-    let newNote = {
-      executor: newTaskInputs.executor.trim() ? newTaskInputs.executor : 'All',
-      text: newTaskInputs.description,
-      status: 'TODO'
-    };
-
-    addTask(newNote);
+    addTask(newTaskInputs);
   };
 
   return (
@@ -48,7 +38,7 @@ const mapDispatchToProps = {
 
 export default connect(
   state => ({
-    newTaskInputs: state.newTaskInputs
+    newTaskInputs: state.inputs
   }),
   mapDispatchToProps
 )(AddTaskPanelContainer);

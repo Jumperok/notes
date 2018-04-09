@@ -24,15 +24,10 @@ class AppContainer extends React.Component {
 }
 
 export default connect(
-
-  state => ({
-    mappedState: state
-  }),
-
+  null,
   dispatch => ({
     getTasks: () => {
       dispatch(noteActions.loadNotes());
     }
   })
-
 )(AppContainer);

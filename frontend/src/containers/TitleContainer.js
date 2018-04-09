@@ -4,6 +4,6 @@ import Title from '../components/Title';
 
 export default connect(
   state => ({
-    tasksAmount: state.tasks.length
+    tasksAmount: state.notes.tasks.length
   })
 )(Title);

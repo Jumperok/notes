@@ -10,7 +10,7 @@ const mapDispatchToProps = {
 
 export default connect(
   (state, ownProps) => ({
-    tasks: state.tasks.filter(t => t.status === ownProps.status)
+    tasks: state.notes.tasks.filter(t => t.status === ownProps.status)
   }),
   mapDispatchToProps
 )(List);

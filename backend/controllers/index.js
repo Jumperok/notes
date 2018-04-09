@@ -24,6 +24,7 @@ export const addNote = (req,res) => {
 
 export const updateNote = (req,res) => {
   Note.findOneAndUpdate({ _id:req.params.id }, req.body, { new:true }, (err, Note) => { // new:true - return the modified document rather than the original
+    console.log(Note);
     if(err){
       return res.json({'success':false,'message':'Some Error','error': err});
     }
@@ -36,6 +37,6 @@ export const deleteNote = (req,res) => {
     if(err){
       return res.json({'success':false,'message':'Some Error'});
     }
-    return res.json({'success':true,'message':Note+' deleted successfully'});
+    return res.json({'success':true,'message':'Deleted successfully','id': Note._id});
   })
 }
