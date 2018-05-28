@@ -26,4 +26,6 @@ Inside "frontend" folder run application:
 $ yarn dev // or 'npm dev'
 ```
 If you did all right you will see in your browser something like this:
-![alt text](https://image.ibb.co/fMUend/ezgif_5_d27e0b9a30.gif)
+<p align="center">
+  <img src="https://image.ibb.co/fMUend/ezgif_5_d27e0b9a30.gif?raw=true" alt="Sublime's custom image"/>
+</p>
