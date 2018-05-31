@@ -7,6 +7,7 @@ Simple notes application based on the following technologies:
 * Express
 * Mongoose
 
+Here you can see how it looks like: https://jumperok.github.io/notes-frontend/
 ## Installation
 Clone from repository:
 ```
